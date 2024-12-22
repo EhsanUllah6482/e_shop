@@ -9,7 +9,6 @@ from .forms import ReviewForm
 from .models import ReviewRating,ProductGallery
 from django.contrib import messages
 from orders.models import OrderProduct
-import pandas as pd
 from store.models import UserInteraction
 # Create your views here.
 
