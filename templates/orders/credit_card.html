@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<body>
+    <form method="POST" action="{% url 'process_payment' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="cardHolderName" class="form-label">Cardholder Name</label>
+            <input type="text" class="form-control" id="cardHolderName" name="cardHolderName" required>
+        </div>
+        <div class="mb-3">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <input minlength="12" maxlength="12" type="text" class="form-control" id="cardNumber" name="cardNumber" required>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="expiryDate" class="form-label">Expiration Date</label>
+                <input type="month" class="form-control" id="expiryDate" name="expiryDate" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="cvv" class="form-label">CVV</label>
+                <input minlength="3" maxlength="3" type="password" class="form-control" id="cvv" name="cvv" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </body>
+
+</html>
+
+{% endblock %}
